@@ -41,7 +41,7 @@ export default function Landing() {
         <div>
             <div>
                 {localStats && <LocalStats local={localStats} />}
-                {GlobalStats && <GlobalStats global={globalStats} />}
+                {globalStats && <GlobalStats global={globalStats} />}
                 {pcrTestData && <DailyCovidCases cases={pcrTestData}/>}
             </div>
             <p>Check console for data</p>
