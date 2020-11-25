@@ -18,5 +18,5 @@ export default function Landing() {
             <h1>THIS IS THE COVID APP</h1>
             <h2>Check console for data</h2>
         </div>
-    )
+    );
 }

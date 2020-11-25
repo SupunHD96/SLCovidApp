@@ -1,9 +1,16 @@
 import './App.css';
 import Landing from "./components/Landing";
+import Navigation from "./components/Navigation";
+import M from 'materialize-css'
+
+
 function App() {
   return (
-    <div className="App">
+    <div>
+    <Navigation />
+    <div className="container App">
       <Landing />
+    </div>
     </div>
   );
 }
