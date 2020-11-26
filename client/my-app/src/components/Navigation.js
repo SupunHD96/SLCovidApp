@@ -11,6 +11,7 @@ class Navigation extends Component {
 
     render() {
         return (
+  <div>
   <div className="navbar-fixed">
   <nav>
     <div className="nav-wrapper teal darken-1">
@@ -24,6 +25,7 @@ class Navigation extends Component {
       </ul>
     </div>
   </nav>
+  </div>
 
 <div className="mobile-wrapper teal darken-1">
   <ul className="sidenav" id="mobile-nav">
