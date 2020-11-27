@@ -46,5 +46,5 @@ export default function Landing() {
             </div>
             <p>Check console for data</p>
         </div>
-    )
+    );
 }
