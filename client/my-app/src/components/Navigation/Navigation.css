@@ -2,3 +2,11 @@
   width: 20%;
   text-align: center;
 }
+
+nav ul li:hover {
+  background-color: #00695c;
+}
+
+.active-link {
+  background-color: #00796b;
+}
