@@ -1,42 +1,48 @@
-import React,{useEffect} from 'react';
-import Chart from 'chart.js';
+import React,{useEffect,useState} from 'react';
+import Chart from "react-apexcharts";
 
 export function DailyCovidCases(props){
     const {cases}=props
+    const [options,setOptions]=useState(undefined);
+    const [series,setSeries]=useState(undefined);
+
     useEffect(() => {
-        const ctx= document.getElementById("covid_cases");
         let dates=[];
         let count=[];
         for(var i=0;i<cases.length;i++){
             dates.push(cases[i].date);
             count.push(parseInt(cases[i].count));
         }
-        new Chart(ctx,{
-            type: 'bar',
-            data: {
-                labels: dates,
-                datasets: [{
-                    label: 'COVID CASES',
-                    data: count,
-                    borderWidth: 1,
-                    backgroundColor:"#1fa2ff",
-                    borderColor:"#1fa2ff",
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
+        setOptions(
+            {
+                chart: {
+                    id: "covid-cases"
+                },
+                xaxis: {
+                    categories: dates
                 }
             }
-        })
-    })
+        );
+        setSeries(
+            [
+                {
+                  name: "COVID-19 CASES",
+                  data: count
+                }
+            ]
+        );
+    },[cases])
     return (
         <div className="content">
-            <canvas id="covid_cases" width="400" height="400"></canvas>
+        {
+            (options && series) &&
+            <Chart
+                options={options}
+                series={series}
+                type="line"
+                width="100%"
+            />
+        }
         </div>
     );
 }
