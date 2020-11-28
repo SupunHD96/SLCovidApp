@@ -43,6 +43,6 @@ Running the application
 npm start
 ```
 ### Contribution
-Look for the following issues to contribute
+Look for the issues to contribute
 <br></br>
 ![GitHub issues](https://img.shields.io/github/issues/SupunHD96/SLCovidApp)
