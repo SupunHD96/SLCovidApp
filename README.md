@@ -10,8 +10,6 @@ An app to track the status of COVID-19 in Sri Lanka
 ![CSS](https://img.shields.io/badge/-CSS-333333?style=flat&logo=CSS3&logoColor=1572B6)
 ![JavaScript](https://img.shields.io/badge/-JavaScript-333333?style=flat&logo=javascript)
 ![React](https://img.shields.io/badge/-React-333333?style=flat&logo=react)
-![npm](https://img.shields.io/npm/v/npm?style=plastic) 
-![GitHub issues](https://img.shields.io/github/issues/SupunHD96/SLCovidApp)
 
 # Table of Contents
 
@@ -28,6 +26,8 @@ A web app to present covid 19 status/analytics in sri lanka and other countries.
 ### Prerequisites
 
 This application requires _Node.js_ and its package manager _npm_ to be installed on the system.
+<br></br>
+![npm](https://img.shields.io/npm/v/npm?style=plastic) 
 
 ### Installation
 
@@ -42,3 +42,7 @@ Running the application
 ```node
 npm start
 ```
+### Contribution
+Look for the following issues to contribute
+<br></br>
+![GitHub issues](https://img.shields.io/github/issues/SupunHD96/SLCovidApp)
