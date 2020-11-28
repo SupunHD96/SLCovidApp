@@ -10,7 +10,7 @@ An app to track the status of COVID-19 in Sri Lanka
 ![CSS](https://img.shields.io/badge/-CSS-333333?style=flat&logo=CSS3&logoColor=1572B6)
 ![JavaScript](https://img.shields.io/badge/-JavaScript-333333?style=flat&logo=javascript)
 ![React](https://img.shields.io/badge/-React-333333?style=flat&logo=react)
-![NPM](https://img.shields.io/v/npm?style=plastic/badge/-NPM-333333?style=flat&logo=NPM&logoColor=CB3837)
+![NPM](https://img.shields.io/v/npm?style=plastic)
 ![GitHub issues](https://img.shields.io/github/issues/SupunHD96/SLCovidApp)
 
 # Table of Contents
