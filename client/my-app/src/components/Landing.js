@@ -1,7 +1,11 @@
 import React,{useEffect,useState} from 'react'
 import {DailyCovidCases} from "./Graphs/Graphs";
 import {LocalStats,GlobalStats} from "./Statistics/Statistics";
+<<<<<<< HEAD
 import Intro from './Intro/intro';
+=======
+import {HospitalStats} from "../components/Graphs/Hospitals"
+>>>>>>> 05797a1b3cf5faaef996efe01c62f6784d0d10b1
 
 const API = `https://hpb.health.gov.lk/api/get-current-statistical`
 
@@ -9,6 +13,7 @@ export default function Landing() {
     const [pcrTestData,setPCRTestData]=useState(undefined);
     const [localStats,setLocalStats]=useState(undefined);
     const [globalStats,setGlobalStats]=useState(undefined);
+    const [hospitalStats, setHospitalStats]=useState(undefined);
     useEffect(()=>{
         //fetching data from the gov health api (GET req)
         fetch(API).then((res)=>res.json()).then((data)=>{
@@ -32,6 +37,7 @@ export default function Landing() {
                 global_total_cases:data.data.global_total_cases,
                 update_date_time:data.data.update_date_time
             })
+            setHospitalStats(data.data.hospital_data)
             console.log(data);
         },
         (error)=>{
@@ -45,6 +51,7 @@ export default function Landing() {
                 {localStats && <LocalStats local={localStats} />}
                 {globalStats && <GlobalStats global={globalStats} />}
                 {pcrTestData && <DailyCovidCases cases={pcrTestData}/>}
+                {hospitalStats && <HospitalStats hos={hospitalStats} />}
             </div>
             <p>Check console for data</p>
         </div>
