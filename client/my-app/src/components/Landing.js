@@ -4,12 +4,17 @@ import {LocalStats,GlobalStats} from "./Statistics/Statistics";
 import {HospitalStats} from "../components/Graphs/Hospitals"
 import Intro from "./Intro/intro";
 
-const API = `https://hpb.health.gov.lk/api/get-current-statistical`
+const API = `https://hpb.health.gov.lk/api/get-current-statistical`;
+const API2=`https://api.covid19api.com/summary`;
 
 export default function Landing() {
+    //local data 
     const [pcrTestData,setPCRTestData]=useState(undefined);
     const [localStats,setLocalStats]=useState(undefined);
+    //non local Data
     const [globalStats,setGlobalStats]=useState(undefined);
+    const [globalUniqueData,setglobalUniqueData]=useState(undefined);
+    //local hospital data
     const [hospitalStats, setHospitalStats]=useState(undefined);
     useEffect(()=>{
         //fetching data from the gov health api (GET req)
@@ -40,6 +45,10 @@ export default function Landing() {
         (error)=>{
             console.log(error);
         })
+        fetch(API2).then((res)=>res.json()).then((data)=>{
+            setglobalUniqueData(data.countries);
+            console.log(data.Countries);
+        })
     },[])
     return (
         <div>
@@ -54,3 +63,9 @@ export default function Landing() {
         </div>
     );
 }
+
+/*Helpful formulas 
+#Recovery Rate = New Recoveries/New Infected
+#Fatality Rate = New Fatality/New Infected
+
+*/
