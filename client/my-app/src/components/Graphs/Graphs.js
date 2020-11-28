@@ -7,11 +7,9 @@ export function DailyCovidCases(props){
     const [series,setSeries]=useState(undefined);
 
     useEffect(() => {
-        let dates=[];
-        let count=[];
+        let data=[];
         for(var i=0;i<cases.length;i++){
-            dates.push(cases[i].date);
-            count.push(parseInt(cases[i].count));
+            data.push([new Date(cases[i].date),parseInt(cases[i].count)]);
         }
         setOptions(
             {
@@ -19,7 +17,31 @@ export function DailyCovidCases(props){
                     id: "covid-cases"
                 },
                 xaxis: {
-                    categories: dates
+                    type: 'datetime',
+                    min: new Date('19 Feb 2020').getTime(),
+                    tickAmount: 6,
+                  },
+                  tooltip: {
+                    x: {
+                      format: 'dd MMM yyyy'
+                    }
+                },
+                stroke:{
+                    curve:"smooth"
+                },
+                title: {
+                    text: "DAILY COVID CASES VS TIME",
+                    align: 'center',
+                    margin: 10,
+                    offsetX: 0,
+                    offsetY: 0,
+                    floating: false,
+                    style: {
+                      fontSize:  '24px',
+                      fontWeight:  'bold',
+                      fontFamily:  "helvetica",
+                      color:  '#263238'
+                    },
                 }
             }
         );
@@ -27,7 +49,7 @@ export function DailyCovidCases(props){
             [
                 {
                   name: "COVID-19 CASES",
-                  data: count
+                  data: data
                 }
             ]
         );

@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import {DailyCovidCases} from "./Graphs/Graphs";
 import {LocalStats,GlobalStats} from "./Statistics/Statistics";
+import Intro from './Intro/intro';
 
 const API = `https://hpb.health.gov.lk/api/get-current-statistical`
 
@@ -40,6 +41,7 @@ export default function Landing() {
     return (
         <div>
             <div>
+                <Intro />
                 {localStats && <LocalStats local={localStats} />}
                 {globalStats && <GlobalStats global={globalStats} />}
                 {pcrTestData && <DailyCovidCases cases={pcrTestData}/>}
