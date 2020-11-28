@@ -40,5 +40,5 @@ npm install
 Running the application
 
 ```node
-npm run start
+npm start
 ```
