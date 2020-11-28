@@ -17,11 +17,11 @@ An app to track the status of COVID-19 in Sri Lanka
 - :rocket: Getting Started
 - :clap: Contribution
 
-# Introduction
+## Introduction
 
 A web app to present covid 19 status/analytics in sri lanka and other countries.
 
-# Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -42,7 +42,7 @@ Running the application
 ```node
 npm start
 ```
-### Contribution
+## Contribution
 Look for the issues to contribute
 <br></br>
 ![GitHub issues](https://img.shields.io/github/issues/SupunHD96/SLCovidApp)
