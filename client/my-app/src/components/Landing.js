@@ -1,11 +1,8 @@
 import React,{useEffect,useState} from 'react'
 import {DailyCovidCases} from "./Graphs/Graphs";
 import {LocalStats,GlobalStats} from "./Statistics/Statistics";
-<<<<<<< HEAD
-import Intro from './Intro/intro';
-=======
 import {HospitalStats} from "../components/Graphs/Hospitals"
->>>>>>> 05797a1b3cf5faaef996efe01c62f6784d0d10b1
+import Intro from "./Intro/intro";
 
 const API = `https://hpb.health.gov.lk/api/get-current-statistical`
 

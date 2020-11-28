@@ -4,15 +4,13 @@ import M from 'materialize-css';
 export function HospitalStats(props){
     const {hos}=props
     
-    useEffect(()=>({
-        componentDidMount() {
-            let collapse = document.querySelector("#collapsible");
-            M.Collapsible.init(collapse, {});
-         }
-    }))
+    useEffect(()=>{
+        let collapse = document.querySelector(".collapsible");
+        M.Collapsible.init(collapse, {});
+    },[]);
 
     return (
-        <div className="container">
+        <div  className="container">
                     <ul className="collapsible">
                     <li>
                     <div className="collapsible-header"><i className="material-icons">filter_drama</i>First</div>
