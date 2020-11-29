@@ -1,11 +1,11 @@
 import React,{useEffect,useState} from 'react'
-import {DailyCovidCases} from "./Graphs/Graphs";
+import {DailyCovidCases,SLTotalBreakdown,FatalityRates,RecoveryRates} from "./Graphs/Graphs";
 import {LocalStats,GlobalStats} from "./Statistics/Statistics";
 import {HospitalStats} from "../components/Graphs/Hospitals"
 import Intro from "./Intro/intro";
 
 const API = `https://hpb.health.gov.lk/api/get-current-statistical`;
-const API2=`https://api.covid19api.com/summary`;
+const API_global=`https://api.covid19api.com/summary`;
 
 export default function Landing() {
     //local data 
@@ -45,8 +45,8 @@ export default function Landing() {
         (error)=>{
             console.log(error);
         })
-        fetch(API2).then((res)=>res.json()).then((data)=>{
-            setglobalUniqueData(data.countries);
+        fetch(API_global).then((res)=>res.json()).then((data)=>{
+            setglobalUniqueData(data.Countries);
             console.log(data.Countries);
         })
     },[])
@@ -57,9 +57,15 @@ export default function Landing() {
                 {localStats && <LocalStats local={localStats} />}
                 {globalStats && <GlobalStats global={globalStats} />}
                 {pcrTestData && <DailyCovidCases cases={pcrTestData}/>}
+                {localStats && <SLTotalBreakdown local={localStats} />}
+                {(globalStats && globalUniqueData) && 
+                    <>
+                        <FatalityRates global={globalUniqueData} globalTotal={globalStats} />
+                        <RecoveryRates global={globalUniqueData} globalTotal={globalStats} />
+                    </>
+                }
                 {hospitalStats && <HospitalStats hos={hospitalStats} />}
             </div>
-            <p>Check console for data</p>
         </div>
     );
 }
@@ -67,5 +73,4 @@ export default function Landing() {
 /*Helpful formulas 
 #Recovery Rate = New Recoveries/New Infected
 #Fatality Rate = New Fatality/New Infected
-
 */
