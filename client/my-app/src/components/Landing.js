@@ -52,20 +52,47 @@ export default function Landing() {
     },[])
     return (
         <div>
-            <div>
+          
                 <Intro />
-                {localStats && <LocalStats local={localStats} />}
-                {globalStats && <GlobalStats global={globalStats} />}
-                {pcrTestData && <DailyCovidCases cases={pcrTestData}/>}
-                {localStats && <SLTotalBreakdown local={localStats} />}
-                {(globalStats && globalUniqueData) && 
-                    <>
-                        <FatalityRates global={globalUniqueData} globalTotal={globalStats} />
-                        <RecoveryRates global={globalUniqueData} globalTotal={globalStats} />
-                    </>
-                }
+                <div style={{backgroundColor:"#045049",textAlign:"center",color:"white"}}>
+                    <h3 style={{color:"white",paddingBottom:"20px",paddingTop:"20px"}}>Direct Data</h3>
+                    <hr></hr>
+                    {localStats && <LocalStats local={localStats} />}
+                    {globalStats && <GlobalStats global={globalStats} />}
+                </div>
+                <div style={{textAlign:"center"}}>
+                    <h3 style={{paddingBottom:"20px",paddingTop:"20px"}}>Local Analitics</h3>
+                    <hr></hr>
+
+                    <div className="row">
+                        <div className="col s12 m6" >
+                            {pcrTestData && <DailyCovidCases cases={pcrTestData}/>}
+                        </div>
+                        <div className="col s12 m6" >
+                            {localStats && <SLTotalBreakdown local={localStats} />}
+                        </div>
+                    </div>
+                    
+                </div>
                 {hospitalStats && <HospitalStats hos={hospitalStats} />}
-            </div>
+
+                <div className="row" style={{textAlign:"center",backgroundColor:"#C0F1EB",color:"black"}}>
+                    <h3 style={{paddingBottom:"20px",paddingTop:"20px"}}>Global Analitics</h3>
+                    <hr></hr>
+                    {(globalStats && globalUniqueData) && 
+                        <>
+
+                        <div className="col s12 m6">
+                            <FatalityRates global={globalUniqueData} globalTotal={globalStats} />
+                        </div>
+                        <div className="col s12 m6">
+                            <RecoveryRates global={globalUniqueData} globalTotal={globalStats} />
+                        </div>
+                        </>
+                    }
+                </div>
+                
+
         </div>
     );
 }

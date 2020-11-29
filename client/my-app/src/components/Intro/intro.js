@@ -1,8 +1,8 @@
-import {useEffect,useState} from 'react';
-import {TweenMax,Power3,TimelineMax,Linear} from 'gsap'
+import {useEffect} from 'react';
+import {TweenMax,Power3,TimelineMax} from 'gsap'
 
 
-export default function Intro(props){
+export default function Intro(){
 
 
     useEffect(()=>{
@@ -26,7 +26,7 @@ export default function Intro(props){
                 </div>
 
                 <div className="col s12 m6 l6 xl6" style={{textAlign:"center"}}>
-                    <svg id="svg" xmlns="http://www.w3.org/2000/svg" width="100%" style={{margin:"auto",paddingTop:"50px"}} viewBox="0 0 752.737 617.679">
+                    <svg id="svg"  style={{margin:"auto",paddingTop:"50px",width:"100%"}} viewBox="0 0 752.737 617.679">
                         <g id="intro" transform="translate(404.497 350)">
                             <g id="hosptal">
                             <path id="Path_1" data-name="Path 1" d="M897.957,235.99l-68.5.667c-3.22-15.851-14.038-57.443-4.3-68.787a16.674,16.674,0,0,1,17.563-14.92h0c10.617-16.62,28.3-14.124,40.255-3.745,12.029,4.151,16.565,11.525,14.979,21.532,8.909,7.8,10.552,17.285,6.553,28.085Z" transform="translate(-626 -490.947)" fill="#2f2e41"/>
@@ -134,7 +134,7 @@ export default function Intro(props){
                 </div>
                 
             </div>
-            <hr></hr>
+           
         </div>
     )
 }
