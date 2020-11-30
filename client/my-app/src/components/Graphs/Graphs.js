@@ -69,6 +69,7 @@ export function DailyCovidCases(props){
         </div>
     );
 }
+
 export function SLTotalBreakdown(props){
     const {local_active_cases,local_deaths,local_recovered}=props.local;
     const series=[local_active_cases, local_deaths, local_recovered];
