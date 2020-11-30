@@ -7,8 +7,8 @@ function Footer(){
         <footer className="page-footer teal lighten-2 center">
          
             <div className="row">
-                <div className="col s12"> <h5 className="black-text">All Rights Reserved</h5></div>
-                <div className="col s12"><p className="black-text">&#169; Coded_life</p></div>
+                <div className="col s12"> <h5 className="white-text">All Rights Reserved</h5></div>
+                <div className="col s12"><p className="white-text">Coded_life</p></div>
             </div>
         </footer>
        </>

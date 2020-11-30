@@ -1,13 +1,21 @@
 import React,{useEffect,useState} from 'react'
-import {DailyCovidCases} from "./Graphs/Graphs";
+import {DailyCovidCases,SLTotalBreakdown,FatalityRates,RecoveryRates} from "./Graphs/Graphs";
 import {LocalStats,GlobalStats} from "./Statistics/Statistics";
+import {HospitalStats} from "../components/Graphs/Hospitals"
+import Intro from "./Intro/intro";
 
-const API = `https://hpb.health.gov.lk/api/get-current-statistical`
+const API = `https://hpb.health.gov.lk/api/get-current-statistical`;
+const API_global=`https://api.covid19api.com/summary`;
 
 export default function Landing() {
+    //local data 
     const [pcrTestData,setPCRTestData]=useState(undefined);
     const [localStats,setLocalStats]=useState(undefined);
+    //non local Data
     const [globalStats,setGlobalStats]=useState(undefined);
+    const [globalUniqueData,setglobalUniqueData]=useState(undefined);
+    //local hospital data
+    const [hospitalStats, setHospitalStats]=useState(undefined);
     useEffect(()=>{
         //fetching data from the gov health api (GET req)
         fetch(API).then((res)=>res.json()).then((data)=>{
@@ -31,20 +39,65 @@ export default function Landing() {
                 global_total_cases:data.data.global_total_cases,
                 update_date_time:data.data.update_date_time
             })
-            console.log(data);
+            setHospitalStats(data.data.hospital_data)
+            // console.log(data);
         },
         (error)=>{
             console.log(error);
         })
+        fetch(API_global).then((res)=>res.json()).then((data)=>{
+            setglobalUniqueData(data.Countries);
+            // console.log(data.Countries);
+        })
     },[])
     return (
         <div>
-            <div>
-                {localStats && <LocalStats local={localStats} />}
-                {globalStats && <GlobalStats global={globalStats} />}
-                {pcrTestData && <DailyCovidCases cases={pcrTestData}/>}
-            </div>
-            <p>Check console for data</p>
+          
+                <Intro />
+                <div style={{backgroundColor:"#045049",textAlign:"center",color:"white"}}>
+                    <h3 style={{color:"white",paddingBottom:"20px",paddingTop:"20px"}}>Direct Data</h3>
+                    <hr></hr>
+                    {localStats && <LocalStats local={localStats} />}
+                    {globalStats && <GlobalStats global={globalStats} />}
+                </div>
+                <div style={{textAlign:"center"}}>
+                    <h3 style={{paddingBottom:"20px",paddingTop:"20px"}}>Local Analitics</h3>
+                    <hr></hr>
+
+                    <div className="row">
+                        <div className="col s12 m6" >
+                            {pcrTestData && <DailyCovidCases cases={pcrTestData}/>}
+                        </div>
+                        <div className="col s12 m6" >
+                            {localStats && <SLTotalBreakdown local={localStats} />}
+                        </div>
+                    </div>
+                    
+                </div>
+                {hospitalStats && <HospitalStats hos={hospitalStats} />}
+
+                <div className="row" style={{textAlign:"center",backgroundColor:"#C0F1EB",color:"black"}}>
+                    <h3 style={{paddingBottom:"20px",paddingTop:"20px"}}>Global Analitics</h3>
+                    <hr></hr>
+                    {(globalStats && globalUniqueData) && 
+                        <>
+
+                        <div className="col s12 m6">
+                            <FatalityRates global={globalUniqueData} globalTotal={globalStats} />
+                        </div>
+                        <div className="col s12 m6">
+                            <RecoveryRates global={globalUniqueData} globalTotal={globalStats} />
+                        </div>
+                        </>
+                    }
+                </div>
+                
+
         </div>
     );
 }
+
+/*Helpful formulas 
+#Recovery Rate = New Recoveries/New Infected
+#Fatality Rate = New Fatality/New Infected
+*/
