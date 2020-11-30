@@ -40,14 +40,14 @@ export default function Landing() {
                 update_date_time:data.data.update_date_time
             })
             setHospitalStats(data.data.hospital_data)
-            console.log(data);
+            // console.log(data);
         },
         (error)=>{
             console.log(error);
         })
         fetch(API_global).then((res)=>res.json()).then((data)=>{
             setglobalUniqueData(data.Countries);
-            console.log(data.Countries);
+            // console.log(data.Countries);
         })
     },[])
     return (

@@ -27,7 +27,8 @@ export function DailyCovidCases(props){
                     }
                 },
                 stroke:{
-                    curve:"smooth"
+                    curve:"smooth",
+                    width:1.5
                 },
                 title: {
                     text: "DAILY COVID CASES VS TIME",

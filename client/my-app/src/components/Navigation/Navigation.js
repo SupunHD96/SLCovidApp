@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { NavLink} from 'react-router-dom';
 // import { NavHashLink } from 'react-router-hash-link';
-import M from 'materialize-css';
+import M from "materialize-css/dist/js/materialize.min.js";
 import './Navigation.css';
 
 class Navigation extends Component {
 
   componentDidMount() {
-    let sidenav = document.querySelector("#mobile-nav");
-    M.Sidenav.init(sidenav, {});
+
+    let sidenav = document.querySelectorAll(".sidenav");
+    M.Sidenav.init(sidenav);
  }
 
     render() {
