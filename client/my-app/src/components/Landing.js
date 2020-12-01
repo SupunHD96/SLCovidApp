@@ -54,13 +54,13 @@ export default function Landing() {
         <div>
           
                 <Intro />
-                <div style={{backgroundColor:"#045049",textAlign:"center",color:"white"}}>
-                    <h3 style={{color:"white",paddingBottom:"20px",paddingTop:"20px"}}>Direct Data</h3>
+                <div style={{backgroundColor:"#ECF0F1",textAlign:"center",color:"black"}}>
+                    <h3 style={{color:"black",paddingBottom:"20px",paddingTop:"20px"}}>Direct Data</h3>
                     <hr></hr>
                     {localStats && <LocalStats local={localStats} />}
                 </div>
                 <div style={{textAlign:"center"}}>
-                    <h3 style={{paddingBottom:"20px",paddingTop:"20px"}}>Local Analitics</h3>
+                    <h3 style={{paddingBottom:"20px",paddingTop:"20px"}}>Local Analytics</h3>
                     <hr></hr>
 
                     <div className="row">
@@ -75,11 +75,12 @@ export default function Landing() {
                 </div>
                 {hospitalStats && <HospitalStats hos={hospitalStats} />}
 
-                <div className="row" style={{textAlign:"center",backgroundColor:"#C0F1EB",color:"black"}}>
-                    <h3 style={{paddingBottom:"20px",paddingTop:"20px"}}>Global Analitics</h3>
+                <div className="row" style={{textAlign:"center",backgroundColor:"#ECF0F1",color:"black"}}>
+                    <h3 style={{paddingBottom:"20px",paddingTop:"20px"}}>Global Analytics</h3>
                     <hr></hr>
                     {globalStats && <GlobalStats global={globalStats} />}
-
+                </div>
+                <div className="row" style={{textAlign:"center",backgroundColor:"white",color:"black"}}>
                     {(globalStats && globalUniqueData) && 
                         <>
                             <div className="col s12 m6">
@@ -90,8 +91,8 @@ export default function Landing() {
                             </div>
                         </>
                     }
-                </div>
-                
+               
+               </div>
 
         </div>
     );

@@ -196,7 +196,7 @@ export function HospitalStats(props){
 
             </div>
             <div style={{paddingTop:"50px",paddingBottom:"50px"}}>
-                <div  className="container #b2dfdb teal lighten-4">
+                <div  className="container" style={{backgroundColor:"#1FA2FF"}}>
                             <ul className="collapsible">
                             <li>
                             <div className="collapsible-header">Hospital Statistics Sri Lanka</div>

@@ -4,7 +4,7 @@ import "./Footer.css";
 
 export default function Footer(){
     return(
-        <footer className="page-footer teal">
+        <footer className="page-footer" style={{backgroundColor:"#4661EC"}}>
           <div className="container">
             <div className="row">
               <div className="col l6 s12">
