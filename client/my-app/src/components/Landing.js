@@ -53,11 +53,6 @@ export default function Landing() {
     },[])
     return (
         <div>
-<<<<<<< HEAD
-          
-                <Intro />
-                <div style={{backgroundColor:"#ECF0F1",textAlign:"center",color:"black",paddingTop:"30px"}}>
-=======
                 <div id="intro">
                     <Intro />
                 </div>
@@ -67,7 +62,6 @@ export default function Landing() {
                 <div style={{backgroundColor:"#ECF0F1",textAlign:"center",color:"black"}}>
                     <h3 style={{color:"black",paddingBottom:"20px",paddingTop:"20px"}}>Covid 19 in Sri Lanka</h3>
                     <hr></hr>
->>>>>>> 366e6594706dac34c98632c7eb84bcab31412a3f
                     {localStats && <LocalStats local={localStats} />}
                 </div>
                 <div style={{textAlign:"center"}}>
@@ -95,14 +89,14 @@ export default function Landing() {
                 </div>
                 <div className="row" style={{textAlign:"center",backgroundColor:"white",color:"black"}}>
                     {(globalStats && globalUniqueData) && 
-                        <>
+                        <div>
                             <div className="col s12 m6">
                                 <FatalityRates global={globalUniqueData} globalTotal={globalStats} />
                             </div>
                             <div className="col s12 m6">
                                 <RecoveryRates global={globalUniqueData} globalTotal={globalStats} />
                             </div>
-                        </>
+                        </div>
                     }
                
                </div>
