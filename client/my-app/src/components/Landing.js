@@ -89,14 +89,14 @@ export default function Landing() {
                 </div>
                 <div className="row" style={{textAlign:"center",backgroundColor:"white",color:"black"}}>
                     {(globalStats && globalUniqueData) && 
-                        <>
+                        <div>
                             <div className="col s12 m6">
                                 <FatalityRates global={globalUniqueData} globalTotal={globalStats} />
                             </div>
                             <div className="col s12 m6">
                                 <RecoveryRates global={globalUniqueData} globalTotal={globalStats} />
                             </div>
-                        </>
+                        </div>
                     }
                
                </div>
