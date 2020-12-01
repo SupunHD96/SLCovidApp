@@ -108,8 +108,3 @@ export default function Landing() {
         </div>
     );
 }
-
-/*Helpful formulas 
-#Recovery Rate = New Recoveries/New Infected
-#Fatality Rate = New Fatality/New Infected
-*/
