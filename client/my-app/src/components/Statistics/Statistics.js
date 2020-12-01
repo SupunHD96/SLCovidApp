@@ -3,8 +3,7 @@ export function LocalStats(props){
     return(
         <div className="content">
             <div className="row left-align" style={{paddingBottom:"50px"}}>
-                <h4>LOCAL DATA</h4>
-                <p>UPDATE({local.update_date_time})</p>
+                <h5>Updated on: ({local.update_date_time})</h5>
             </div>
             <div className="row" style={{textAlign:"center"}}>
                 <div className="col s12 m4" style={{paddingBottom:"30px"}}>
@@ -174,9 +173,8 @@ export function GlobalStats(props){
     const {global} = props
     return(
         <div className="content">
-            <div className="row left-align">
-                <h4>GLOBAL DATA</h4>
-                <p>UPDATE({global.update_date_time})</p>
+            <div className="row left-align" style={{paddingBottom:"50px"}}>
+                <h5>Updated on: {global.update_date_time}</h5>
             </div>
             <div className="row" style={{textAlign:"center"}}>
                 <div className="col s12 m4" style={{paddingBottom:"30px"}}>
@@ -278,6 +276,44 @@ export function GlobalStats(props){
                         <div className="col s9 m9">
                             <span className="card-title">New Deaths</span>
                             <p>{global.global_new_deaths}</p>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div className="col s12 m4" style={{paddingBottom:"30px"}}>
+                    
+                    <div className="row">
+                        <div className="col s3 m3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%"  viewBox="0 0 387.562 387.1">
+                                <g id="pills" transform="translate(0 -0.23)">
+                                    <g id="Group_2" data-name="Group 2">
+                                    <g id="Group_1" data-name="Group 1">
+                                        <path id="Path_7" data-name="Path 7" d="M298.375,22.918a77.406,77.406,0,0,0-109.5,0l-75.8,75.8,109.6,109.6,75.7-75.9A77.5,77.5,0,0,0,298.375,22.918Zm-77.7,44.8-34.5,34-.1.1a9.971,9.971,0,1,1-13.9-14.3l34.6-34,.1-.1a9.937,9.937,0,1,1,13.8,14.3Z" fill="#000dc8"/>
+                                    </g>
+                                    </g>
+                                    <g id="Group_4" data-name="Group 4">
+                                    <g id="Group_3" data-name="Group 3">
+                                        <path id="Path_8" data-name="Path 8" d="M98.875,112.818l-76.3,76.4a77.641,77.641,0,0,0,110.1,109.5l75.9-76.2Z" fill="#000dc8"/>
+                                    </g>
+                                    </g>
+                                    <g id="Group_6" data-name="Group 6">
+                                    <g id="Group_5" data-name="Group 5">
+                                        <path id="Path_9" data-name="Path 9" d="M371.575,263.418l-107.9,108a76.982,76.982,0,0,0,107.9-108Z" fill="#000dc8"/>
+                                    </g>
+                                    </g>
+                                    <g id="Group_8" data-name="Group 8">
+                                    <g id="Group_7" data-name="Group 7">
+                                        <path id="Path_10" data-name="Path 10" d="M310.575,233.418a77.03,77.03,0,0,0-61.1,123.9l107.9-107.9A76.156,76.156,0,0,0,310.575,233.418Z" fill="#000dc8"/>
+                                    </g>
+                                    </g>
+                                </g>
+                            </svg>
+
+
+                        </div>
+                        <div className="col s9 m9">
+                            <span className="card-title">Active Cases</span>
+                            <p>{(global.global_total_cases - (global.global_recovered + global.global_deaths))}</p>
                         </div>
                     </div>
                    
