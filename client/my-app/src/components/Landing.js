@@ -3,6 +3,7 @@ import {DailyCovidCases,SLTotalBreakdown,FatalityRates,RecoveryRates} from "./Gr
 import {LocalStats,GlobalStats} from "./Statistics/Statistics";
 import {HospitalStats} from "../components/Graphs/Hospitals"
 import Intro from "./Intro/intro";
+import Safety from "./Safety/Safety";
 
 const API = `https://hpb.health.gov.lk/api/get-current-statistical`;
 const API_global=`https://api.covid19api.com/summary`;
@@ -52,18 +53,20 @@ export default function Landing() {
     },[])
     return (
         <div>
-          
-                <Intro />
-                <div style={{backgroundColor:"#045049",textAlign:"center",color:"white"}}>
-                    <h3 style={{color:"white",paddingBottom:"20px",paddingTop:"20px"}}>Direct Data</h3>
+                <div id="intro">
+                    <Intro />
+                </div>
+                <div id="local">
+                <br></br>
+                </div>
+                <div style={{backgroundColor:"#ECF0F1",textAlign:"center",color:"black"}}>
+                    <h3 style={{color:"black",paddingBottom:"20px",paddingTop:"20px"}}>Covid 19 in Sri Lanka</h3>
                     <hr></hr>
                     {localStats && <LocalStats local={localStats} />}
-                    {globalStats && <GlobalStats global={globalStats} />}
                 </div>
                 <div style={{textAlign:"center"}}>
-                    <h3 style={{paddingBottom:"20px",paddingTop:"20px"}}>Local Analitics</h3>
+                     <h3 style={{paddingBottom:"20px",paddingTop:"20px"}}>Breakdown of the Statistics</h3> 
                     <hr></hr>
-
                     <div className="row">
                         <div className="col s12 m6" >
                             {pcrTestData && <DailyCovidCases cases={pcrTestData}/>}
@@ -76,28 +79,32 @@ export default function Landing() {
                 </div>
                 {hospitalStats && <HospitalStats hos={hospitalStats} />}
 
-                <div className="row" style={{textAlign:"center",backgroundColor:"#C0F1EB",color:"black"}}>
-                    <h3 style={{paddingBottom:"20px",paddingTop:"20px"}}>Global Analitics</h3>
-                    <hr></hr>
-                    {(globalStats && globalUniqueData) && 
-                        <>
-
-                        <div className="col s12 m6">
-                            <FatalityRates global={globalUniqueData} globalTotal={globalStats} />
-                        </div>
-                        <div className="col s12 m6">
-                            <RecoveryRates global={globalUniqueData} globalTotal={globalStats} />
-                        </div>
-                        </>
-                    }
+                <div id="global">
+                    <br></br>
                 </div>
-                
+                <div className="row" style={{textAlign:"center",backgroundColor:"#ECF0F1",color:"black"}}>
+                    <h3 style={{paddingBottom:"20px",paddingTop:"20px"}}>Covid 19 in the World</h3>
+                    <hr></hr>
+                    {globalStats && <GlobalStats global={globalStats} />}
+                </div>
+                <div className="row" style={{textAlign:"center",backgroundColor:"white",color:"black"}}>
+                    {(globalStats && globalUniqueData) && 
+                        <div>
+                            <div className="col s12 m6">
+                                <FatalityRates global={globalUniqueData} globalTotal={globalStats} />
+                            </div>
+                            <div className="col s12 m6">
+                                <RecoveryRates global={globalUniqueData} globalTotal={globalStats} />
+                            </div>
+                        </div>
+                    }
+               
+               </div>
+
+               <div id="safety">
+                   <Safety />
+               </div>
 
         </div>
     );
 }
-
-/*Helpful formulas 
-#Recovery Rate = New Recoveries/New Infected
-#Fatality Rate = New Fatality/New Infected
-*/

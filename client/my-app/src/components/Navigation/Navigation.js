@@ -1,46 +1,32 @@
-import React, { Component } from 'react';
-import { NavLink} from 'react-router-dom';
-// import { NavHashLink } from 'react-router-hash-link';
-import M from "materialize-css/dist/js/materialize.min.js";
+import React from 'react';
+import { NavHashLink } from 'react-router-hash-link';
 import './Navigation.css';
 
-class Navigation extends Component {
+export default function Navigation(){
 
-  componentDidMount() {
-
-    let sidenav = document.querySelectorAll(".sidenav");
-    M.Sidenav.init(sidenav);
- }
-
-    render() {
         return (
-          <div>
-            <div className="navbar-fixed">
-              <nav>
-                <div className="nav-wrapper teal darken-1">
-                  <a href="/intro" data-target="mobile-nav" className="btn-floating btn-large teal darken-1 sidenav-trigger"><i className="material-icons">menu</i></a>
-                  <ul className="hide-on-med-and-down">
-                    <li className="menu-item left"><NavLink to='/intro' activeClassName="active-link">Intro</NavLink></li>
-                    <li className="menu-item right"><NavLink to='/testing' activeClassName="active-link"> Testing</NavLink></li>
-                    <li className="menu-item right"><NavLink to='/intro' activeClassName="active-link">Landing</NavLink></li>
-                    <li className="menu-item right"><NavLink to='/testing' activeClassName="active-link">Testing 1</NavLink></li>
-                    <li className="menu-item right"><NavLink to='/testing' activeClassName="active-link">Testing 2</NavLink></li>
-                  </ul>
-                </div>
-              </nav>
-            </div>
-            <div className="mobile-wrapper teal darken-1">
-              <ul className="sidenav" id="mobile-nav">
-                <li><NavLink to='/intro'>Intro</NavLink></li>
-                <li><NavLink to='/testing'>Testing</NavLink></li>
-                <li><NavLink to='/intro'>Landing</NavLink></li>
-                <li><NavLink to='/testing'>Testing 1</NavLink></li>
-                <li><NavLink to='/testing'>Testing 2</NavLink></li>
+          <div className="navbar-fixed ">
+          <nav>
+            <div className="nav-wrapper"  style={{backgroundColor:"#1FA2FF"}}>
+              <li className="brand-logo"><NavHashLink smooth to='/landing#intro'>Home</NavHashLink></li>
+              <ul id="nav-large" className="right hide-on-small-only">
+                <li><NavHashLink smooth to='/landing#local'>Local Data</NavHashLink></li>
+                <li><NavHashLink smooth to='/landing#global'>Global Data</NavHashLink></li>
+                <li><NavHashLink smooth to='/safety#safety'>Prevention</NavHashLink></li>
+                <li></li>
               </ul>
+
+              <div>
+              <ul id="nav-mobile" className="hide-on-med-and-up">
+                <li><NavHashLink to='/landing#intro'>HomeMob</NavHashLink></li>
+                <li><NavHashLink to='/safety#safety'>PreventionMob</NavHashLink></li>
+                <li></li>
+              </ul>
+              </div>
+
+
             </div>
-          </div>
+          </nav>
+        </div>
         );
     }
-}
-
-export default Navigation;
