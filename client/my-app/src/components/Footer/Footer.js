@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import {TweenMax,Power3} from 'gsap';
 import "./Footer.css";
-import { TimelineMax } from 'gsap/gsap-core';
 
 export default function Footer(){
 
@@ -42,14 +41,14 @@ export default function Footer(){
                       </g>
                       <path id="cursor" d="M205.823,140.142l5.736-1.564a2.719,2.719,0,0,0,.249-5.165l-26.447-10.031a2.719,2.719,0,0,0-3.506,3.506l10.031,26.447a2.719,2.719,0,0,0,5.165-.248l1.564-5.736L212,160.731a2.717,2.717,0,0,0,3.844,0l3.364-3.364a2.719,2.719,0,0,0,0-3.845Z" transform="translate(414 241.408)"/>
                       <g id="coded" transform="translate(25 74)">
-                        <text id="_.C" data-name=".C" transform="translate(457 693)" font-size="119" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">.C</tspan></text>
-                        <text id="oded" transform="translate(570 692)" font-size="64" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">oded</tspan></text>
+                        <text id="_.C" data-name=".C" transform="translate(457 693)" fontSize="119" fontFamily="SegoeUI-Bold, Segoe UI" fontWeight="700"><tspan x="0" y="0">.C</tspan></text>
+                        <text id="oded" transform="translate(570 692)" fontSize="64" fontFamily="SegoeUI-Bold, Segoe UI" fontWeight="700"><tspan x="0" y="0">oded</tspan></text>
                       </g>
                       <g id="life" transform="translate(-126 78)">
-                        <text id="L_" transform="translate(625 809)" font-size="119" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">L_</tspan></text>
-                        <text id="if_e_:" data-name="if (e):" transform="translate(735 813)" font-size="64" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">if (e):</tspan></text>
+                        <text id="L_" transform="translate(625 809)" fontSize="119" fontFamily="SegoeUI-Bold, Segoe UI" fontWeight="700"><tspan x="0" y="0">L_</tspan></text>
+                        <text id="if_e_:" data-name="if (e):" transform="translate(735 813)" fontSize="64" fontFamily="SegoeUI-Bold, Segoe UI" fontWeight="700"><tspan x="0" y="0">if (e):</tspan></text>
                       </g>
-                      <text id="Text" transform="translate(482 317)" font-size="18" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">System.out.println(&quot;Coded_Life&quot;)</tspan></text>
+                      <text id="Text" transform="translate(482 317)" fontSize="18" fontFamily="SegoeUI-Bold, Segoe UI" fontWeight="700"><tspan x="0" y="0">System.out.println(&quot;Coded_Life&quot;)</tspan></text>
                     </g>
                   </svg>
 

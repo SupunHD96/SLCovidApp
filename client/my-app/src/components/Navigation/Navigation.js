@@ -15,7 +15,6 @@ export default function Navigation(){
                     <li><a href='#safety'>Prevention</a></li>
                     <li></li>
                   </ul>
-
                   <div>
                   <ul id="nav-mobile" className="hide-on-med-and-up">
                     <li><a href='#intro'>HomeMob</a></li>
@@ -24,7 +23,6 @@ export default function Navigation(){
                   </ul>
                   </div>
                   
-
                 </div>
               </nav>
             </div>
