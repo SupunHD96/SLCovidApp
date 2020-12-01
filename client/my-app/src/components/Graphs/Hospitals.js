@@ -1,13 +1,12 @@
 import React, {useEffect} from 'react';
-import M from 'materialize-css';
-
+import M from "materialize-css/dist/js/materialize.min.js";
 
 export function HospitalStats(props){
     const {hos}=props
     
     useEffect(()=>{
-        let collapse = document.querySelector(".collapsible");
-        M.Collapsible.init(collapse, {});
+        let collapse = document.querySelectorAll(".collapsible");
+        M.Collapsible.init(collapse);
     },[]);
 
     return (

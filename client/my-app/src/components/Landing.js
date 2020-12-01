@@ -40,14 +40,14 @@ export default function Landing() {
                 update_date_time:data.data.update_date_time
             })
             setHospitalStats(data.data.hospital_data)
-            console.log(data);
+            // console.log(data);
         },
         (error)=>{
             console.log(error);
         })
         fetch(API_global).then((res)=>res.json()).then((data)=>{
             setglobalUniqueData(data.Countries);
-            console.log(data.Countries);
+            // console.log(data.Countries);
         })
     },[])
     return (
@@ -58,7 +58,6 @@ export default function Landing() {
                     <h3 style={{color:"white",paddingBottom:"20px",paddingTop:"20px"}}>Direct Data</h3>
                     <hr></hr>
                     {localStats && <LocalStats local={localStats} />}
-                    {globalStats && <GlobalStats global={globalStats} />}
                 </div>
                 <div style={{textAlign:"center"}}>
                     <h3 style={{paddingBottom:"20px",paddingTop:"20px"}}>Local Analitics</h3>
@@ -79,15 +78,16 @@ export default function Landing() {
                 <div className="row" style={{textAlign:"center",backgroundColor:"#C0F1EB",color:"black"}}>
                     <h3 style={{paddingBottom:"20px",paddingTop:"20px"}}>Global Analitics</h3>
                     <hr></hr>
+                    {globalStats && <GlobalStats global={globalStats} />}
+
                     {(globalStats && globalUniqueData) && 
                         <>
-
-                        <div className="col s12 m6">
-                            <FatalityRates global={globalUniqueData} globalTotal={globalStats} />
-                        </div>
-                        <div className="col s12 m6">
-                            <RecoveryRates global={globalUniqueData} globalTotal={globalStats} />
-                        </div>
+                            <div className="col s12 m6">
+                                <FatalityRates global={globalUniqueData} globalTotal={globalStats} />
+                            </div>
+                            <div className="col s12 m6">
+                                <RecoveryRates global={globalUniqueData} globalTotal={globalStats} />
+                            </div>
                         </>
                     }
                 </div>

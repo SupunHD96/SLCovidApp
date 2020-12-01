@@ -27,7 +27,8 @@ export function DailyCovidCases(props){
                     }
                 },
                 stroke:{
-                    curve:"smooth"
+                    curve:"smooth",
+                    width:1.5
                 },
                 title: {
                     text: "DAILY COVID CASES VS TIME",
@@ -68,6 +69,7 @@ export function DailyCovidCases(props){
         </div>
     );
 }
+
 export function SLTotalBreakdown(props){
     const {local_active_cases,local_deaths,local_recovered}=props.local;
     const series=[local_active_cases, local_deaths, local_recovered];
@@ -116,6 +118,20 @@ export function FatalityRates(props){
                             horizontal: true
                         }
                     },
+                    dataLabels: {
+                        enabled: true,
+                        formatter: function(val) {
+                            return  val +"%" 
+                        },
+                    },
+                    tooltip: {
+                        y: {
+                            show: true,
+                            formatter: function(val){
+                                return val+"%"
+                            }
+                        },
+                    },
                     title:{
                         text: "Fatality Rates",
                         align: 'center',
@@ -132,6 +148,7 @@ export function FatalityRates(props){
                     }
                 }}
                 series={[{
+                    name:"Fatality Rate",
                     data: fatalityStats
                   }]}
                 type="bar"
@@ -164,8 +181,24 @@ export function RecoveryRates(props){
                 options={{
                     plotOptions: {
                         bar: {
-                            horizontal: true
+                            horizontal: true,
+                            dataLabels:{
+                            }
                         }
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        formatter: function(val) {
+                            return  val +"%" 
+                        },
+                    },
+                    tooltip: {
+                        y: {
+                            show: true,
+                            formatter: function(val){
+                                return val+"%"
+                            }
+                        },
                     },
                     title:{
                         text: "Recovery Rates",
@@ -183,6 +216,7 @@ export function RecoveryRates(props){
                     }
                 }}
                 series={[{
+                    name:"Recovery Rate",
                     data: recoveryStats
                   }]}
                 type="bar"
