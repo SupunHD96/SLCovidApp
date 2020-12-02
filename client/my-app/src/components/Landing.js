@@ -3,6 +3,7 @@ import {DailyCovidCases,SLTotalBreakdown,FatalityRates,RecoveryRates} from "./Gr
 import {LocalStats,GlobalStats} from "./Statistics/Statistics";
 import {HospitalStats} from "../components/Graphs/Hospitals"
 import Intro from "./Intro/intro";
+import Safety from "./Safety/Safety";
 
 const API = `https://hpb.health.gov.lk/api/get-current-statistical`;
 const API_global=`https://api.covid19api.com/summary`;
@@ -52,15 +53,26 @@ export default function Landing() {
     },[])
     return (
         <div>
+<<<<<<< HEAD
           
                 <Intro />
                 <div style={{backgroundColor:"#ECF0F1",textAlign:"center",color:"black",paddingTop:"30px"}}>
+=======
+                <div id="intro">
+                    <Intro />
+                </div>
+                <div id="local">
+                <br></br>
+                </div>
+                <div style={{backgroundColor:"#ECF0F1",textAlign:"center",color:"black"}}>
+                    <h3 style={{color:"black",paddingBottom:"20px",paddingTop:"20px"}}>Covid 19 in Sri Lanka</h3>
+                    <hr></hr>
+>>>>>>> 366e6594706dac34c98632c7eb84bcab31412a3f
                     {localStats && <LocalStats local={localStats} />}
                 </div>
                 <div style={{textAlign:"center"}}>
-                    <h3 style={{paddingBottom:"20px",paddingTop:"20px"}}>Local Analytics</h3>
+                     <h3 style={{paddingBottom:"20px",paddingTop:"20px"}}>Breakdown of the Statistics</h3> 
                     <hr></hr>
-
                     <div className="row">
                         <div className="col s12 m6" >
                             {pcrTestData && <DailyCovidCases cases={pcrTestData}/>}
@@ -73,8 +85,11 @@ export default function Landing() {
                 </div>
                 {hospitalStats && <HospitalStats hos={hospitalStats} />}
 
+                <div id="global">
+                    <br></br>
+                </div>
                 <div className="row" style={{textAlign:"center",backgroundColor:"#ECF0F1",color:"black"}}>
-                    <h3 style={{paddingBottom:"20px",paddingTop:"20px"}}>Global Analytics</h3>
+                    <h3 style={{paddingBottom:"20px",paddingTop:"20px"}}>Covid 19 in the World</h3>
                     <hr></hr>
                     {globalStats && <GlobalStats global={globalStats} />}
                 </div>
@@ -90,6 +105,10 @@ export default function Landing() {
                         </>
                     }
                
+               </div>
+
+               <div id="safety">
+                   <Safety />
                </div>
 
         </div>

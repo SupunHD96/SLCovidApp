@@ -17,6 +17,8 @@ export default function Intro(){
 
     return(
         <div className="container">
+            <br></br>
+            <br></br>
             <div className="row">
                 <div className="col s12 m6 l6 xl6">
                     <h2 id="covid"><b>COVID 19</b></h2>
