@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {TweenMax, Power3, TimelineMax,Linear} from 'gsap';
+import {TimelineMax} from 'gsap';
 import "./Footer.css";
 
 export default function Footer(){
@@ -16,12 +16,16 @@ export default function Footer(){
     var life = new TimelineMax({yoyo:true,  repeat:-1});
             life.fromTo("#life",{x:0, repeat:-1, fill:"black"},{x:-100,fill:"white"});
             life.duration(2);
-            
 
+    var cursor = new TimelineMax({yoyo:true, repeat:-1});
+        cursor.fromTo("#cursor",{fill:"red"},{fill:"black"})
 
-
-    TweenMax.staggerFromTo('#Path_3',3,{fill:"#91FFFF",repeat:-1},{fill:"#35E5E5",repeat:-1} );
-    TweenMax.staggerFromTo('#Path_4',3,{fill:"#A6E8E6",repeat:-1},{fill:"#28CEC9",repeat:-1} );
+    var bg1 = new TimelineMax({yoyo:true, repeat:-1});
+        bg1.fromTo("#screen_lap1",{fill:"gray"},{fill:"white"})    
+    
+        var bg2 = new TimelineMax({yoyo:true, repeat:-1});
+        bg2.fromTo("#screen_lap2",{fill:"gray"},{fill:"white"})
+    
 
   },[])
     return(
@@ -38,8 +42,8 @@ export default function Footer(){
                       <g id="laptop" transform="translate(359 173.799)">
                         <path id="Path_1" data-name="Path 1" d="M463.577,353.5H48.423V73.72A7.018,7.018,0,0,1,55.441,66.7H456.559a7.018,7.018,0,0,1,7.018,7.018V353.5Z" fill="#dfeaef"/>
                         <path id="Path_2" data-name="Path 2" d="M456.559,66.7h-52.2a7.018,7.018,0,0,1,7.018,7.018V312.251a8.249,8.249,0,0,1-8.249,8.249H48.423v33H463.578V73.72A7.02,7.02,0,0,0,456.559,66.7Z" fill="#bfcfd6"/>
-                        <path id="Path_3" data-name="Path 3" d="M79.423,300.55V101.962A4.261,4.261,0,0,1,83.684,97.7H428.317a4.261,4.261,0,0,1,4.261,4.261V300.55a4.261,4.261,0,0,1-4.261,4.261H83.684A4.26,4.26,0,0,1,79.423,300.55Z" fill="#35e5e5"/>
-                        <path id="Path_4" data-name="Path 4" d="M428.316,97.7H411.379V280.576a4.261,4.261,0,0,1-4.261,4.261H79.423v15.714a4.261,4.261,0,0,0,4.261,4.261H428.317a4.261,4.261,0,0,0,4.261-4.261V101.962A4.261,4.261,0,0,0,428.316,97.7Z" fill="#28cec9"/>
+                        <path id="screen_lap1" data-name="Path 3" d="M79.423,300.55V101.962A4.261,4.261,0,0,1,83.684,97.7H428.317a4.261,4.261,0,0,1,4.261,4.261V300.55a4.261,4.261,0,0,1-4.261,4.261H83.684A4.26,4.26,0,0,1,79.423,300.55Z" fill="#35e5e5"/>
+                        <path id="screen_lap2" data-name="Path 4" d="M428.316,97.7H411.379V280.576a4.261,4.261,0,0,1-4.261,4.261H79.423v15.714a4.261,4.261,0,0,0,4.261,4.261H428.317a4.261,4.261,0,0,0,4.261-4.261V101.962A4.261,4.261,0,0,0,428.316,97.7Z" fill="#28cec9"/>
                         <path id="Path_5" data-name="Path 5" d="M494.756,445.3H17.244A9.744,9.744,0,0,1,7.5,435.554V416.528h497v19.026A9.744,9.744,0,0,1,494.756,445.3Z" fill="#6f98a3"/>
                         <path id="Path_6" data-name="Path 6" d="M504.5,416.529H7.5l40.923-80.718H463.577Z" fill="#9ebecc"/>
                         <path id="Path_7" data-name="Path 7" d="M463.577,335.811H404.91L431.8,388.855a8.913,8.913,0,0,1-7.95,12.944H14.967L7.5,416.529h497Z" fill="#86aebc"/>
@@ -64,17 +68,17 @@ export default function Footer(){
 
                 <p className="grey-text text-lighten-4">Developers :</p>
                 <ul>
-                  <li><a style={{color:"white"}} href="https://github.com/SupunHD96">⦿ Supun Hewa Dewage</a></li>
-                  <li><a style={{color:"white"}} href="https://github.com/IshankaDSenevirathne">⦿ Ishanka D Senevirathne</a></li>
-                  <li><a style={{color:"white"}} href="https://github.com/vae97">⦿ V Akash Ekanayaka</a></li>
-                  <li><a style={{color:"white"}} href="https://github.com/KisalRojitha">⦿ Kisal Rojitha</a></li>
+                  <li><a style={{color:"white"}} href="https://github.com/SupunHD96">• Supun Hewa Dewage</a></li>
+                  <li><a style={{color:"white"}} href="https://github.com/IshankaDSenevirathne">• Ishanka D Senevirathne</a></li>
+                  <li><a style={{color:"white"}} href="https://github.com/vae97">• V Akash Ekanayaka</a></li>
+                  <li><a style={{color:"white"}} href="https://github.com/KisalRojitha">• Kisal Rojitha</a></li>
                 </ul>
               </div>
               <div className="col l4 offset-l2 s12">
                 <h5 className="white-text">Referances</h5>
                 <ul>
-                  <li><a className="links" target="_blank" rel="noreferrer" href="https://www.covid19api.dev/">Global Coronavirus API</a></li>
-                  <li><a className="links" target="_blank" rel="noreferrer" href="https://hpb.health.gov.lk/ta/api-documentation">Sri Lanka Health Promotion Bureau</a></li>
+                  <li><a className="links" target="_blank" rel="noreferrer" href="https://www.covid19api.dev/">• Global Coronavirus API</a></li>
+                  <li><a className="links" target="_blank" rel="noreferrer" href="https://hpb.health.gov.lk/ta/api-documentation">• Sri Lanka Health Promotion Bureau</a></li>
                 </ul>
               </div>
             </div>
