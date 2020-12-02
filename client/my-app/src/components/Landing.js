@@ -54,9 +54,7 @@ export default function Landing() {
         <div>
           
                 <Intro />
-                <div style={{backgroundColor:"#ECF0F1",textAlign:"center",color:"black"}}>
-                    <h3 style={{color:"black",paddingBottom:"20px",paddingTop:"20px"}}>Direct Data</h3>
-                    <hr></hr>
+                <div style={{backgroundColor:"#ECF0F1",textAlign:"center",color:"black",paddingTop:"30px"}}>
                     {localStats && <LocalStats local={localStats} />}
                 </div>
                 <div style={{textAlign:"center"}}>
