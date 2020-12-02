@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {TweenMax,Power3} from 'gsap';
+import {TweenMax, Power3, TimelineMax,Linear} from 'gsap';
 import "./Footer.css";
 
 export default function Footer(){
@@ -8,8 +8,18 @@ export default function Footer(){
 
   useEffect(()=>{
 
-    TweenMax.staggerFromTo('#coded',3,{opacity:.4,x:-80, ease:Power3.easeOut,repeat:-1},{opacity:1,x:0, ease:Power3.easeOut,repeat:-1} );
-    TweenMax.staggerFromTo('#life',3,{opacity:.4,x:0, ease:Power3.easeOut,repeat:-1},{opacity:1,x:-80, ease:Power3.easeOut,repeat:-1} );
+    var coded = new TimelineMax({yoyo:true,  repeat:-1});
+            coded.fromTo("#coded",{x:-80, repeat:-1,fill:"black"},{x:20,fill:"white"});
+            coded.duration(2)
+
+    
+    var life = new TimelineMax({yoyo:true,  repeat:-1});
+            life.fromTo("#life",{x:0, repeat:-1, fill:"black"},{x:-100,fill:"white"});
+            life.duration(2);
+            
+
+
+
     TweenMax.staggerFromTo('#Path_3',3,{fill:"#91FFFF",repeat:-1},{fill:"#35E5E5",repeat:-1} );
     TweenMax.staggerFromTo('#Path_4',3,{fill:"#A6E8E6",repeat:-1},{fill:"#28CEC9",repeat:-1} );
 
