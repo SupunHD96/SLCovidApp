@@ -75,7 +75,7 @@ export default function Footer(){
                 </ul>
               </div>
               <div className="col l4 offset-l2 s12">
-                <h5 className="white-text">Referances</h5>
+                <h5 className="white-text">References</h5>
                 <ul>
                   <li><a className="links" target="_blank" rel="noreferrer" href="https://www.covid19api.dev/">• Global Coronavirus API</a></li>
                   <li><a className="links" target="_blank" rel="noreferrer" href="https://hpb.health.gov.lk/ta/api-documentation">• Sri Lanka Health Promotion Bureau</a></li>
