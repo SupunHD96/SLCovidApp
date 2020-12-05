@@ -3,12 +3,12 @@
   text-align: center;
 }
 
-.nav-large{
-
+.nav-wrapper{
+  background-color: #4661EC;
 }
 
 .nav-mobile {
-
+  background-color: #4661EC;
 }
 
 nav ul li:hover {
