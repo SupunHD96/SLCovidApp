@@ -16,13 +16,13 @@ class Navigation extends Component {
       <div className="navbar-fixed ">
         <nav>
           <div className="nav-wrapper" style={{ backgroundColor: "#1FA2FF" }}>
-            <i className="brand-logo"><NavHashLink smooth to='/landing#intro'>Home</NavHashLink></i>
+            <li className="brand-logo"><NavHashLink smooth to='/landing#intro'>Home</NavHashLink></li>
 
-            <i className="material-icons dropdown-trigger btn-flat hide-on-med-and-up" data-target='nav-dropdown' style={{ backgroundColor: "#1FA2FF" }}>menu</i>
+            <span className="dropdown-trigger hide-on-med-and-up" data-target='nav-dropdown'><i className="large material-icons">menu</i></span>
             <ul id="nav-dropdown" className="dropdown-content hide-on-med-and-up">
-              <li className="collection-item"><NavHashLink smooth to='/landing#local'>Local Data</NavHashLink></li>
-              <li className="collection-item"><NavHashLink smooth to='/landing#global'>Global Data</NavHashLink></li>
-              <li className="collection-item"><NavHashLink smooth to='/safety#safety'>Prevention</NavHashLink></li>
+              <li className="white"><NavHashLink smooth to='/landing#local'>Local Data</NavHashLink></li>
+              <li className="white"><NavHashLink smooth to='/landing#global'>Global Data</NavHashLink></li>
+              <li className="white"><NavHashLink smooth to='/safety#safety'>Prevention</NavHashLink></li>
             </ul>
 
             <ul id="nav-large" className="right hide-on-small-only">

@@ -7,16 +7,10 @@
   background-color: #4661EC;
 }
 
-.nav-mobile {
-  background-color: #4661EC;
-}
-
 nav ul li:hover {
   background-color: #4661EC;
 }
 
-.active-link {
+.brand-logo:hover {
   background-color: #4661EC;
 }
-
-
