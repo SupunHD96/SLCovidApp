@@ -3,20 +3,14 @@
   text-align: center;
 }
 
-.nav-large{
-
-}
-
-.nav-mobile {
-
+.nav-wrapper{
+  background-color: #4661EC;
 }
 
 nav ul li:hover {
   background-color: #4661EC;
 }
 
-.active-link {
-  background-color: #4661EC;
+.img{
+  margin-top: 5px;
 }
-
-
