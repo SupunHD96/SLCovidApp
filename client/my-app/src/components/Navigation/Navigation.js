@@ -2,7 +2,7 @@ import { Component, React } from 'react';
 import { NavHashLink } from 'react-router-hash-link';
 import M from 'materialize-css';
 import './Navigation.css';
-import Flag from '../../images/flag.png';
+import Flag from '../../Images/flag.png';
 
 class Navigation extends Component {
 
