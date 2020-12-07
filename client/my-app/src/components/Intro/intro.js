@@ -7,12 +7,13 @@ export default function Intro(){
 
     useEffect(()=>{
 
-        TweenMax.staggerFromTo("#covid",2,{opacity:0,x:-100,ease:Power3.easeOut},{opacity:1,x:0})
-        TweenMax.staggerFromTo("#update",3,{opacity:0,x:-100,ease:Power3.easeOut},{opacity:1,x:0})
-        TweenMax.staggerFromTo("#svg",4,{opacity:0,x:100,ease:Power3.easeOut},{opacity:1,x:0})
+        TweenMax.staggerFromTo("#covid",2,{opacity:0,x:-20,ease:Power3.easeOut},{opacity:1,x:0})
+        TweenMax.staggerFromTo("#update",3,{opacity:0,x:-20,ease:Power3.easeOut},{opacity:1,x:0})
+        TweenMax.staggerFromTo("#svg",4,{opacity:0,x:20,ease:Power3.easeOut},{opacity:1,x:0})
 
-        var virus= new TimelineMax({repeat:-1});
-            virus.fromTo("#covid-19",{rotation:'+360',transformOrigin:"50% 50%", duration:5},{rotation:"-360",duration:5})
+        var virus= new TimelineMax({yoyo:true,repeat:-1});
+            virus.fromTo("#covid-19",{rotation:'+360',transformOrigin:"50% 50%"},{rotation:"-360"});
+            virus.duration(10)
     },[]);
 
     return(
