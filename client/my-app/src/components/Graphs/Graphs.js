@@ -9,7 +9,7 @@ export function DailyCovidCases(props){
     useEffect(() => {
         let data=[];
         for(var i=0;i<cases.length;i++){
-            data.push([new Date(cases[i].date),parseInt(cases[i].count)]);
+            data.push([new Date(cases[i].date),parseInt(cases[i].pcr_count)]);
         }
         setOptions(
             {
@@ -31,7 +31,7 @@ export function DailyCovidCases(props){
                     width:1.5
                 },
                 title: {
-                    text: "DAILY COVID CASES VS TIME",
+                    text: "DAILY PCR COUNT VS TIME",
                     align: 'center',
                     margin: 10,
                     offsetX: 0,
@@ -68,6 +68,77 @@ export function DailyCovidCases(props){
         }
         </div>
     );
+}
+
+export function DailyAntigenCount(props){
+
+    const {antigen} = props;
+    const [options,setOptions]=useState(undefined);
+    const [series,setSeries]=useState(undefined);
+
+    useEffect(() => {
+        let data=[];
+        for(var i=0;i<antigen.length;i++){
+            data.push([new Date(antigen[i].date),parseInt(antigen[i].antigen_count)]);
+        }
+        setOptions(
+            {
+                chart: {
+                    id: "covid-cases"
+                },
+                xaxis: {
+                    type: 'datetime',
+                    min: new Date('19 Feb 2020').getTime(),
+                    tickAmount: 6,
+                  },
+                  tooltip: {
+                    x: {
+                      format: 'dd MMM yyyy'
+                    }
+                },
+                stroke:{
+                    curve:"smooth",
+                    width:1.5
+                },
+                title: {
+                    text: "DAILY ANTIGEN TEST COUNT VS TIME",
+                    align: 'center',
+                    margin: 10,
+                    offsetX: 0,
+                    offsetY: 0,
+                    floating: false,
+                    style: {
+                      fontSize:  '14px',
+                      fontWeight:  'bold',
+                      fontFamily:  "helvetica",
+                      color:  '#263238'
+                    },
+                }
+            }
+        );
+        setSeries(
+            [
+                {
+                  name: "COVID-19 CASES",
+                  data: data
+                }
+            ]
+        );
+    },[antigen]);
+    return (
+        <div className="content">
+        {
+            (options && series) &&
+            <Chart
+                options={options}
+                series={series}
+                type="line"
+                width="100%"
+            />
+        }
+        </div>
+    );
+
 }
 
 export function SLTotalBreakdown(props){
