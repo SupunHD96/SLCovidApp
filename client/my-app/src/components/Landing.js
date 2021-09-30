@@ -1,9 +1,9 @@
 import React,{useEffect,useState} from 'react'
 import {DailyCovidCases,SLTotalBreakdown,FatalityRates,RecoveryRates} from "./Graphs/Graphs";
 import {LocalStats,GlobalStats} from "./Statistics/Statistics";
-import {HospitalStats} from "../components/Graphs/Hospitals"
 import Intro from "./Intro/intro";
 import Safety from "./Safety/Safety";
+import { DailyAntigenCount } from './Graphs/Graphs';
 
 const API = `https://hpb.health.gov.lk/api/get-current-statistical`;
 const API_global=`https://api.covid19api.com/summary`;
@@ -11,16 +11,16 @@ const API_global=`https://api.covid19api.com/summary`;
 export default function Landing() {
     //local data 
     const [pcrTestData,setPCRTestData]=useState(undefined);
+    const [antigenTestData, setAntigenTestData] = useState(undefined);
     const [localStats,setLocalStats]=useState(undefined);
     //non local Data
     const [globalStats,setGlobalStats]=useState(undefined);
     const [globalUniqueData,setglobalUniqueData]=useState(undefined);
-    //local hospital data
-    const [hospitalStats, setHospitalStats]=useState(undefined);
     useEffect(()=>{
         //fetching data from the gov health api (GET req)
         fetch(API).then((res)=>res.json()).then((data)=>{
             setPCRTestData(data.data.daily_pcr_testing_data);
+            setAntigenTestData(data.data.daily_antigen_testing_data);
             setLocalStats({
                 local_active_cases:data.data.local_active_cases,
                 local_deaths:data.data.local_deaths,
@@ -40,8 +40,6 @@ export default function Landing() {
                 global_total_cases:data.data.global_total_cases,
                 update_date_time:data.data.update_date_time
             })
-            setHospitalStats(data.data.hospital_data)
-            // console.log(data);
         },
         (error)=>{
             console.log(error);
@@ -72,12 +70,14 @@ export default function Landing() {
                             {pcrTestData && <DailyCovidCases cases={pcrTestData}/>}
                         </div>
                         <div className="col s12 m6" >
+                            {antigenTestData && <DailyAntigenCount antigen={antigenTestData}/>}
+                        </div>
+                        <div className="col s12 m6" >
                             {localStats && <SLTotalBreakdown local={localStats} />}
                         </div>
                     </div>
                     
                 </div>
-                {hospitalStats && <HospitalStats hos={hospitalStats} />}
 
                 <div id="global">
                     <br></br>
