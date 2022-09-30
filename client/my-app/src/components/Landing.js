@@ -16,6 +16,7 @@ export default function Landing() {
     //non local Data
     const [globalStats,setGlobalStats]=useState(undefined);
     const [globalUniqueData,setglobalUniqueData]=useState(undefined);
+    const [allCountries,setAllCountries] =useState([])
     useEffect(()=>{
         //fetching data from the gov health api (GET req)
         fetch(API).then((res)=>res.json()).then((data)=>{
@@ -46,7 +47,7 @@ export default function Landing() {
         })
         fetch(API_global).then((res)=>res.json()).then((data)=>{
             setglobalUniqueData(data.Countries);
-            // console.log(data.Countries);
+            setAllCountries(data.Countries);
         })
     },[])
     return (
@@ -85,7 +86,7 @@ export default function Landing() {
                 <div className="row" style={{textAlign:"center",backgroundColor:"#ECF0F1",color:"black"}}>
                     <h3 style={{paddingBottom:"20px",paddingTop:"20px"}}>Covid 19 in the World</h3>
                     <hr></hr>
-                    {globalStats && <GlobalStats global={globalStats} />}
+                    {globalStats && <GlobalStats global={globalStats} allCountries={allCountries}/>}
                 </div>
                 <div className="row" style={{textAlign:"center",backgroundColor:"white",color:"black"}}>
                     {(globalStats && globalUniqueData) && 
