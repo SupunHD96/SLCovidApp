@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export function LocalStats(props){
     const {local}=props;
     return(
@@ -170,13 +172,80 @@ export function LocalStats(props){
 
 
 export function GlobalStats(props){
-    const {global} = props
+    const {global,allCountries} = props
+
+    console.log(allCountries)
+    const [country,setCountry]=useState()
+
+    const readCountry=(e)=>{
+        if(e.target.value===""){
+            setCountry(undefined)
+        }
+        else{
+            props.allCountries!==undefined && props.allCountries.map((c,i)=>{
+                if(c.ID===e.target.value){
+                    setCountry(c)
+                }
+                return c
+            })
+        }
+    }
     return(
         <div className="content">
             <div className="row left-align" style={{paddingBottom:"50px"}}>
                 <h5>Updated on: {global.update_date_time}</h5>
             </div>
-            <div className="row" style={{textAlign:"center"}}>
+
+            <div className="row" style={{textAlign:"center",paddingBottom:"30px"}}>
+                <div className="col s12 m3">
+                    <div style={{textAlign:"left",paddingBottom:"20px"}}>
+                        <label style={{color:"black", fontSize:"20px"}}>Select Country</label>
+                    </div>
+                    <select className="browser-default" onChange={(e)=>readCountry(e)}>
+                        <option  value="">Choose your Country</option>
+                        {
+                            props.allCountries!==undefined && allCountries.map((country,index)=>(
+                                <option value={country.ID} key={index}>{country.Country}</option>
+                            ))
+                        }
+                    </select>   
+                </div>
+                {
+                    country!==undefined ?
+                    <>
+                        <div className="col s12 m3" style={{paddingBottom:"30px"}}>
+                            <label style={{color:"black", fontSize:"20px",paddingBottom:"20px"}}>New Confirmed</label><br/>
+                            <label style={{color:"black", fontSize:"20px"}}>{country.NewConfirmed}</label>
+                        </div>
+                        <div className="col s12 m3" style={{paddingBottom:"30px"}}>
+                          <label style={{color:"black", fontSize:"20px",paddingBottom:"20px"}}>Total Confirmed</label><br/>
+                          <label style={{color:"black", fontSize:"20px"}}>{country.TotalConfirmed}</label>
+                      </div>
+                      <div className="col s12 m3" style={{paddingBottom:"30px"}}>
+                          <label style={{color:"black", fontSize:"20px",paddingBottom:"20px"}}>New Deaths</label><br/>
+                          <label style={{color:"black", fontSize:"20px"}}>{country.NewDeaths}</label>
+                      </div>
+                      <div className="col s12 m3" style={{paddingBottom:"30px"}}>
+                          <label style={{color:"black", fontSize:"20px",paddingBottom:"20px"}}>Total Deaths</label><br/>
+                          <label style={{color:"black", fontSize:"20px"}}>{country.TotalDeaths}</label>
+                      </div>
+                      <div className="col s12 m3" style={{paddingBottom:"30px"}}>
+                          <label style={{color:"black", fontSize:"20px",paddingBottom:"20px"}}>New Recovered</label><br/>
+                          <label style={{color:"black", fontSize:"20px"}}>{country.NewRecovered}</label>
+                      </div>
+                      <div className="col s12 m3" style={{paddingBottom:"30px"}}>
+                          <label style={{color:"black", fontSize:"20px",paddingBottom:"20px"}}>Total Recovered</label><br/>
+                          <label style={{color:"black", fontSize:"20px"}}>{country.TotalRecovered}</label>
+                      </div>
+                    </>
+                    :<></>
+                }
+             
+            </div>
+            <hr/>
+
+
+            <div className="row" style={{textAlign:"center", paddingTop:"30px"}}>
                 <div className="col s12 m4" style={{paddingBottom:"30px"}}>
 
                     <div className="row">
